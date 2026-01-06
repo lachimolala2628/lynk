@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import { createShortUrl } from '../api/shortUrl.api';
 
 const UrlForm = () => {
 
     const [url, setUrl] = useState();
     const [shortUrl, setShortUrl] = useState();
     const [copied, setCopied] = useState(false);
+
     const handleSubmit = async () => {
-        const { data } = await axios.post('http://localhost:3000/api/create', { url });
-        setShortUrl(data)
+        const shortUrl = await createShortUrl(url);
+        setShortUrl(shortUrl)
     };
 
     const handleCopy = () => {
