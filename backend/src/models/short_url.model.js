@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const shortUrlSchema = new mongoose.Schema({
-
     full_url: {
         type: String,
         required: true,
@@ -21,7 +20,6 @@ const shortUrlSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
-
 });
 
 const shortUrl = mongoose.model('shortUrl', shortUrlSchema);

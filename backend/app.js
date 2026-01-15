@@ -1,13 +1,17 @@
 import dotenv from 'dotenv';
 dotenv.config({ path: './.env' });
+
 import express from 'express';
 const app = express();
 
 import connectDB from './src/config/mongo.config.js';
 import urlRoute from './src/routes/short_url.route.js'
+import authRoute from './src/routes/auth.route.js'
 import { redirectFromShortUrl } from './src/controller/short_url.controller.js';
 import { errorHandler } from './src/utils/errorHandler.js';
 import cors from 'cors';
+import { attachUser } from './src/utils/attachUser.js';
+import cookieParser from 'cookie-parser';
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -16,7 +20,11 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
+app.use(attachUser);
+
+app.use('/api/auth', authRoute);
 app.use('/api/create', urlRoute);
 app.get('/:id', redirectFromShortUrl);
 
