@@ -7,6 +7,7 @@ const app = express();
 import connectDB from './src/config/mongo.config.js';
 import urlRoute from './src/routes/short_url.route.js'
 import authRoute from './src/routes/auth.route.js'
+import userRoute from './src/routes/user.route.js'
 import { redirectFromShortUrl } from './src/controller/short_url.controller.js';
 import { errorHandler } from './src/utils/errorHandler.js';
 import cors from 'cors';
@@ -24,6 +25,7 @@ app.use(cookieParser());
 
 app.use(attachUser);
 
+app.use('/api/user', userRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/create', urlRoute);
 app.get('/:id', redirectFromShortUrl);

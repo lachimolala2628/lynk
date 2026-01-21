@@ -1,15 +1,26 @@
 import React, { useState } from 'react'
 import { createShortUrl } from '../api/shortUrl.api';
+import { useSelector } from 'react-redux';
+import { queryClient } from '../main';
 
 const UrlForm = () => {
 
     const [url, setUrl] = useState();
     const [shortUrl, setShortUrl] = useState();
     const [copied, setCopied] = useState(false);
+    const [error, setError] = useState(null);
+    const [customSlug, setCustomSlug] = useState("");
+    const { isAuthenticated } = useSelector((state) => state.auth);
 
     const handleSubmit = async () => {
-        const shortUrl = await createShortUrl(url);
-        setShortUrl(shortUrl)
+        try {
+            const shortUrl = await createShortUrl(url, customSlug);
+            setShortUrl(shortUrl)
+            queryClient.invalidateQueries({ queryKey: ['userUrls'] })
+            setError(null)
+        } catch (error) {
+            setError(error.message)
+        }
     };
 
     const handleCopy = () => {
@@ -44,11 +55,26 @@ const UrlForm = () => {
                 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
             >Shorten URL
             </button>
-            {/* {error && (
+            {error && (
                 <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md">
-                    error
+                    {error}
                 </div>
-            )} */}
+            )}
+            {isAuthenticated && (
+                <div className="mt-4">
+                    <label htmlFor="customSlug" className="block text-sm font-medium text-gray-700 mb-1">
+                        Custom URL (optional)
+                    </label>
+                    <input
+                        type="text"
+                        id="customSlug"
+                        value={customSlug}
+                        onChange={(event) => setCustomSlug(event.target.value)}
+                        placeholder="Enter custom URL"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                </div>
+            )}
             {shortUrl && (
                 <div className="mt-6">
                     <h2 className="text-lg font-semibold mb-2">Your shortened URL:</h2>
