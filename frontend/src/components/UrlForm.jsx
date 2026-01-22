@@ -33,9 +33,9 @@ const UrlForm = () => {
     };
 
     return (
-        <div className='space-x-4'>
-            <div>
-                <label htmlFor="url" className="block text-sm font-medium text-gray-700 mb-1">
+        <div className='w-full max-w-sm mx-auto'>
+            <div className='mb-2'>
+                <label htmlFor="url" className="block text-gray-700 text-sm font-bold mb-2">
                     Enter your URL
                 </label>
                 <input
@@ -43,26 +43,14 @@ const UrlForm = () => {
                     id="url"
                     value={url}
                     onInput={(event) => setUrl(event.target.value)}
-                    placeholder="https://example.com"
+                    placeholder="https://www.example.com"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
             </div>
-            <button
-                onClick={handleSubmit}
-                type="submit"
-                className="w-full bg-blue-500 text-white mt-2 py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 
-                focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
-            >Shorten URL
-            </button>
-            {error && (
-                <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md">
-                    {error}
-                </div>
-            )}
             {isAuthenticated && (
-                <div className="mt-4">
-                    <label htmlFor="customSlug" className="block text-sm font-medium text-gray-700 mb-1">
+                <div className="mt-4 mb-4">
+                    <label htmlFor="customSlug" className="block text-gray-700 text-sm font-bold mb-2">
                         Custom URL (optional)
                     </label>
                     <input
@@ -71,8 +59,20 @@ const UrlForm = () => {
                         value={customSlug}
                         onChange={(event) => setCustomSlug(event.target.value)}
                         placeholder="Enter custom URL"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
+                </div>
+            )}
+            <button
+                onClick={handleSubmit}
+                type="submit"
+                className="w-full bg-blue-500 text-white mt-2 py-2 px-4 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 
+                focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+            >Shorten URL
+            </button>
+            {error && (
+                <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md">
+                    {error}
                 </div>
             )}
             {shortUrl && (
@@ -83,7 +83,7 @@ const UrlForm = () => {
                             type="text"
                             readOnly
                             value={shortUrl}
-                            className="flex-1 p-2 border border-gray-300 rounded-l-md bg-gray-50"
+                            className="flex-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         />
                         <button
                             onClick={handleCopy}
