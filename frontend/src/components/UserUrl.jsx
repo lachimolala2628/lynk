@@ -49,7 +49,7 @@ const UserUrl = () => {
     }
 
     return (
-        <div className="bg-white rounded-lg mt-5 shadow-md overflow-hidden">
+        <div className="bg-white rounded-xl mt-5 shadow-md overflow-hidden">
             <div className="overflow-x-auto h-56">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">

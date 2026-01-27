@@ -33,7 +33,7 @@ const UrlForm = () => {
     };
 
     return (
-        <div className='w-full max-w-sm mx-auto'>
+        <div className='w-full max-w-sm mx-auto rounded-xl'>
             <div className='mb-2'>
                 <label htmlFor="url" className="block text-gray-700 text-sm font-bold mb-2">
                     Enter your URL
