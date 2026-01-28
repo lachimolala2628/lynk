@@ -41,7 +41,7 @@ const RegisterForm = ({ state }) => {
                 <h2 className="text-2xl font-mono text-[#ffffff] text-center mb-6">Create an Account</h2>
 
                 {error && (
-                    <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
+                    <div className="mb-4 p-3 bg-[#171717] border border-[#222323] text-[#E95C4A] rounded-xl font-mono">
                         {error}
                     </div>
                 )}
@@ -104,8 +104,8 @@ const RegisterForm = ({ state }) => {
                 </div>
 
                 <div className="text-center mt-4">
-                    <p className="cursor-pointer text-sm text-gray-600">
-                        Already have an account? <span onClick={() => state(true)} className="text-blue-500 hover:text-blue-700">Sign In</span>
+                    <p className="cursor-pointer text-sm font-mono text-[#a1a1a1]">
+                        Already have an account? <span onClick={() => state(true)} className="text-[#a1a1a1] underline hover:text-[#ffffff]">Sign In</span>
                     </p>
                 </div>
             </div>

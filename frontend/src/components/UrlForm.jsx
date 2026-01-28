@@ -70,7 +70,7 @@ const UrlForm = () => {
             >Shorten URL
             </button>
             {error && (
-                <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md">
+                <div className="mt-4 p-3 bg-[#171717] border border-[#222323] text-[#E95C4A] rounded-xl font-mono">
                     {error}
                 </div>
             )}
