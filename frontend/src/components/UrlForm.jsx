@@ -33,9 +33,9 @@ const UrlForm = () => {
     };
 
     return (
-        <div className='w-full max-w-sm mx-auto rounded-xl'>
+        <div className='w-full max-w-sm mx-auto'>
             <div className='mb-2'>
-                <label htmlFor="url" className="block text-gray-700 text-sm font-bold mb-2">
+                <label htmlFor="url" className="block text-[#FFFFFF] text-sm font-mono mb-2">
                     Enter your URL
                 </label>
                 <input
@@ -45,12 +45,12 @@ const UrlForm = () => {
                     onInput={(event) => setUrl(event.target.value)}
                     placeholder="https://www.example.com"
                     required
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded-xl w-full py-2 px-3 text-[#FFFFFF] bg-[#171717] border-[#222323] placeholder:text-[#a1a1a1] placeholder:font-mono"
                 />
             </div>
             {isAuthenticated && (
                 <div className="mt-4 mb-4">
-                    <label htmlFor="customSlug" className="block text-gray-700 text-sm font-bold mb-2">
+                    <label htmlFor="customSlug" className="block text-[#FFFFFF] text-sm font-mono mb-2">
                         Custom URL (optional)
                     </label>
                     <input
@@ -59,15 +59,14 @@ const UrlForm = () => {
                         value={customSlug}
                         onChange={(event) => setCustomSlug(event.target.value)}
                         placeholder="Enter custom URL"
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded-xl w-full py-2 px-3 text-[#FFFFFF] bg-[#171717] border-[#222323] placeholder:text-[#a1a1a1] placeholder:font-mono"
                     />
                 </div>
             )}
             <button
                 onClick={handleSubmit}
                 type="submit"
-                className="w-full bg-blue-500 text-white mt-2 py-2 px-4 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 
-                focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+                className="w-full mt-2 py-2 px-4 rounded-xl bg-[#E5E5E5] text-[#171717] font-mono"
             >Shorten URL
             </button>
             {error && (
@@ -77,17 +76,17 @@ const UrlForm = () => {
             )}
             {shortUrl && (
                 <div className="mt-6">
-                    <h2 className="text-lg font-semibold mb-2">Your shortened URL:</h2>
+                    <h2 className="text-lg font-mono mb-2">Your shortened URL:</h2>
                     <div className="flex items-center">
                         <input
                             type="text"
                             readOnly
                             value={shortUrl}
-                            className="flex-1 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="flex-1 shadow appearance-none border rounded-l-lg w-full py-2 px-3 text-[#FFFFFF] bg-[#171717] border-[#222323] placeholder:text-[#a1a1a1] placeholder:font-mono"
                         />
                         <button
                             onClick={handleCopy}
-                            className={`px-4 py-2 rounded-r-md transition-colors duration-20 ${copied ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-gray-200 hover:bg-gray-300'}`}
+                            className={`px-4 py-2 rounded-r-lg transition-colors duration-20 font-mono ${copied ? 'bg-[#E5E5E5] text-[#171717]' : 'bg-[#E5E5E5]'}`}
                         >
                             {copied ? 'Copied!' : 'Copy'}
                         </button>

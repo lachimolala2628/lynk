@@ -3,12 +3,12 @@ import { Link } from '@tanstack/react-router';
 
 const Navbar = () => {
     return (
-        <nav className="bg-white border border-b-black">
+        <nav className="bg-[#0A0A0A]">
             <div className=" mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     {/* Left side - App Name */}
                     <div className="flex items-center">
-                        <Link to="/" className="text-xl font-bold text-gray-800">
+                        <Link to="/" className="text-2xl font-mono text-[#ffffff]">
                             Lynk
                         </Link>
                     </div>
@@ -28,7 +28,7 @@ const Navbar = () => {
                         ) : (
                             <Link
                                 to="/auth"
-                                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium"
+                                className="bg-[#E5E5E5] text-[171717] px-4 py-2 rounded-xl text-sm font-mono"
                             >
                                 Login
                             </Link>

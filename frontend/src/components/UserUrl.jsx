@@ -23,7 +23,7 @@ const UserUrl = () => {
     if (isLoading) {
         return (
             <div className="flex justify-center my-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#ffffff]"></div>
             </div>
         )
     }
@@ -38,41 +38,41 @@ const UserUrl = () => {
 
     if (!urls.urls || urls.urls.length === 0) {
         return (
-            <div className="text-center text-gray-500 my-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <svg className="w-12 h-12 mx-auto text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div className="text-center text-[#ffffff] my-6 p-4 bg-[#0A0A0A] rounded-lg border border-[#222323]">
+                <svg className="w-12 h-12 mx-auto text-[#ffffff] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
-                <p className="text-lg font-medium">No URLs found</p>
-                <p className="mt-1">You haven't created any shortened URLs yet.</p>
+                <p className="text-lg font-mono">No URLs found</p>
+                <p className="mt-1 font-mono">You haven't created any shortened URLs yet.</p>
             </div>
         )
     }
 
     return (
-        <div className="bg-white rounded-xl mt-5 shadow-md overflow-hidden">
+        <div className="bg-[#0A0A0A] rounded-lg mt-5 shadow-md overflow-hidden">
             <div className="overflow-x-auto h-56">
-                <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
+                <table className="min-w-full divide-y divide-[#222323] border border-[#222323]">
+                    <thead className="bg-[#0A0A0A]">
                         <tr>
-                            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" className="px-6 py-3 text-center text-xs font-mono text-[#ffffff] uppercase tracking-wider">
                                 Original URL
                             </th>
-                            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" className="px-6 py-3 text-center text-xs font-mono text-[#ffffff] uppercase tracking-wider">
                                 Short URL
                             </th>
-                            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" className="px-6 py-3 text-center text-xs font-mono text-[#ffffff] uppercase tracking-wider">
                                 Clicks
                             </th>
-                            <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" className="px-6 py-3 text-center text-xs font-mono text-[#ffffff] uppercase tracking-wider">
                                 Actions
                             </th>
                         </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
+                    <tbody className="bg-[#0A0A0A] divide-y divide-[#222323] border border-[#222323]">
                         {urls.urls.reverse().map((url) => (
-                            <tr key={url._id} className="hover:bg-gray-50">
+                            <tr key={url._id} className="hover:bg-[#181818]">
                                 <td className="px-6 py-4">
-                                    <div className="text-sm text-gray-900 truncate max-w-xs text-center">
+                                    <div className="text-sm text-[#ffffff] truncate max-w-xs text-center font-mono">
                                         {url.full_url}
                                     </div>
                                 </td>
@@ -82,7 +82,7 @@ const UserUrl = () => {
                                             href={`http://localhost:3000/${url.short_url}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-blue-600 hover:text-blue-900 hover:underline"
+                                            className="text-[#a1a1a1] hover:text-[#ffffff] hover:underline font-mono"
                                         >
                                             {`localhost:3000/${url.short_url}`}
                                         </a>
@@ -90,7 +90,7 @@ const UserUrl = () => {
                                 </td>
                                 <td className="px-6 py-4">
                                     <div className="text-center">
-                                        <span className="px-2 text-xs text-black">
+                                        <span className="px-2 text-xs text-[#ffffff] font-mono">
                                             {url.clicks}
                                         </span>
                                     </div>
@@ -98,10 +98,10 @@ const UserUrl = () => {
                                 <td className="px-6 py-4 text-sm font-medium text-center">
                                     <button
                                         onClick={() => handleCopy(`http://localhost:3000/${url.short_url}`, url._id)}
-                                        className={`px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm ${copiedId === url._id
-                                            ? 'bg-green-600 text-white hover:bg-green-700'
-                                            : 'bg-blue-600 text-white hover:bg-blue-700'
-                                            } focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200`}
+                                        className={`px-3 py-1.5  text-xs font-mono rounded-xl shadow-sm ${copiedId === url._id
+                                            ? 'bg-[#E5E5E5] text-[#171717]'
+                                            : 'bg-[#E5E5E5] text-[#171717]'
+                                            }`}
                                     >
                                         {copiedId === url._id ? (
                                             <>

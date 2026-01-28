@@ -37,8 +37,8 @@ const RegisterForm = ({ state }) => {
 
     return (
         <div className="w-full max-w-sm mx-auto">
-            <div className="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
-                <h2 className="text-2xl font-bold text-center mb-6">Create an Account</h2>
+            <div className="bg-[#0A0A0A] border border-[#222323] rounded-lg px-8 pt-6 pb-8 mb-4">
+                <h2 className="text-2xl font-mono text-[#ffffff] text-center mb-6">Create an Account</h2>
 
                 {error && (
                     <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
@@ -47,11 +47,11 @@ const RegisterForm = ({ state }) => {
                 )}
 
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                    <label className="block text-[#ffffff] text-sm font-mono mb-2" htmlFor="name">
                         Full Name
                     </label>
                     <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded-xl w-full py-2 px-3 text-[#FFFFFF] bg-[#171717] border-[#222323] placeholder:text-[#a1a1a1] placeholder:font-mono"
                         id="name"
                         type="text"
                         placeholder="Enter your name"
@@ -62,11 +62,11 @@ const RegisterForm = ({ state }) => {
                 </div>
 
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                    <label className="block text-[#ffffff] text-sm font-mono mb-2" htmlFor="email">
                         Email
                     </label>
                     <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded-xl w-full py-2 px-3 text-[#FFFFFF] bg-[#171717] border-[#222323] placeholder:text-[#a1a1a1] placeholder:font-mono"
                         id="email"
                         type="email"
                         placeholder="Enter your email"
@@ -77,11 +77,11 @@ const RegisterForm = ({ state }) => {
                 </div>
 
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                    <label className="block text-[#ffffff] text-sm font-mono mb-2" htmlFor="password">
                         Password
                     </label>
                     <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded-xl w-full py-2 px-3 text-[#FFFFFF] bg-[#171717] border-[#222323] placeholder:text-[#a1a1a1] placeholder:font-mono"
                         id="password"
                         type="password"
                         placeholder="Enter your password"
@@ -94,7 +94,7 @@ const RegisterForm = ({ state }) => {
 
                 <div className="flex items-center justify-between">
                     <button
-                        className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`bg-[#E5E5E5] text-[#171717] font-mono py-2 px-4 rounded-xl w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                         type="submit"
                         onClick={handleSubmit}
                         disabled={loading}
